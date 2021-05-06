@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Outlays</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @outlays.each do |outlay| %>
+      <tr>
+        <td><%= outlay.name %></td>
+        <td><%= outlay.amount %></td>
+        <td><%= outlay.author_id %></td>
+        <td><%= link_to 'Show', outlay %></td>
+        <td><%= link_to 'Edit', edit_outlay_path(outlay) %></td>
+        <td><%= link_to 'Destroy', outlay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Outlay', new_outlay_path %>
