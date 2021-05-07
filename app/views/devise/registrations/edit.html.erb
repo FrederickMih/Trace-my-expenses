@@ -4,13 +4,13 @@
     <h4>Edit Profile <% resource_name.to_s.humanize %></h4>
   </div>
   <div class="card-body">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%=form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
 
  <div class="field form-group">
     <%= f.label :avatar %><br />
-    <%= f.file_field :avatar, autofocus: true, autocomplete: "avatar",  class:"form-control", placeholder:"Avatar" %>
+    <%= f.file_field :avatar, autofocus: true, autocomplete: "avatar",  class:"form-control", placeholder:"Image",direct_upload: true %>
   </div>
 
   <div class="field form-group">
