@@ -1,32 +1,24 @@
-<%= form_with(model: outlay) do |form| %>
-  <% if outlay.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(outlay.errors.count, "error") %> prohibited this outlay from being saved:</h2>
+<div class="col s12">
+  <div class="card horizontal left-align">
+    <div class="card-stacked">
+      <div class="card-content">
 
-      <ul>
-        <% outlay.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <%= form_with(model: outlay) do |form| %>
+       
+          <%= form.text_field :name, placeholder: 'Name' %>
+          <%= form.text_field :amount, placeholder: 'Amount' %>
+          <%= form.collection_check_boxes( :group_ids, Group.all, :id, :name ) %>
+
+          <br/>
+          <br/>
+          <div class="btn waves-effect waves-light center">
+            <%= form.submit %>
+          </div>
         <% end %>
-      </ul>
+      </div>
+      <div class="card-action">
+        <%= link_to '<i class="small material-icons green-text darken-4">arrow_back</i>'.html_safe, outlays_path %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
-
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.number_field :amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :author_id %>
-    <%= form.text_field :author_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
