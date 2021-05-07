@@ -31,9 +31,10 @@ The application has the following features:
 
 [Group My Expenses](https://nameless-caverns-64323.herokuapp.com/)
 
-# Please used this repository for the live version if you find any issue in setting up the already reviewed repository in your local machine. Sorry I could not make a live version for the already reviewed repository.
 
-[Trace-my-expenses](https://github.com/FrederickMih/Trace-my-expenses)
+# Please used this repository for the live version if you find any issue in setting up the already reviewed repository in your local machine. Sorry I could not make a live version for the already reviewed repository.
+[(Please click here) Trace-my-expenses](https://github.com/FrederickMih/Trace-my-expenses/tree/feature-expenses)
+
 
 ## Getting Started
 
