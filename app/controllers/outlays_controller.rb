@@ -1,69 +1,86 @@
 class OutlaysController < ApplicationController
-  before_action :set_outlay, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
-  # GET /outlays or /outlays.json
-  def index
-    @outlays = Outlay.all
-  end
-
-  # GET /outlays/1 or /outlays/1.json
-  def show
-  end
-
-  # GET /outlays/new
   def new
     @outlay = Outlay.new
   end
 
-  # GET /outlays/1/edit
-  def edit
+  def edit; end
+
+  def index
+    @most_recent_outlays = my_outlays
+
+    @outlays = Outlay.includes(groups: [icon_attachment: :blob]).paginate(page: params[:page], per_page: 3)
+      .where('author_id=?', current_user.id).joins(:groups).order(:created_at)
+    @skip_footer = true
   end
 
-  # POST /outlays or /outlays.json
+  def index_no_group
+    @outlays = Outlay.includes(groups: [icon_attachment: :blob]).paginate(page: params[:page], per_page: 3)
+      .where('author_id=?', current_user.id).left_outer_joins(:groups).where('groups.id IS NULL')
+    render 'index'
+  end
+
   def create
     @outlay = Outlay.new(outlay_params)
-
-    respond_to do |format|
-      if @outlay.save
-        format.html { redirect_to @outlay, notice: "Outlay was successfully created." }
-        format.json { render :show, status: :created, location: @outlay }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @outlay.errors, status: :unprocessable_entity }
-      end
+    @outlay = current_user.outlays.build(outlay_params)
+    @outlay.author_id = current_user.id
+    ids = params[:outlay][:group].reject(&:empty?)
+    groups = Group.find(ids)
+    # ids = params[:outlay][:group]
+    # groups = Group.find(ids)
+    @outlay.groups << groups
+    if @outlay.save
+      @outlay.outlays_groups.create(show_group_id)
+      redirect_to outlays_path, notice: 'An Item was successfully registered'
+    else
+      flash[:danger] = @outlay.errors.full_messages
+      redirect_back(fallback_location: new_outlay_path)
     end
   end
 
-  # PATCH/PUT /outlays/1 or /outlays/1.json
   def update
-    respond_to do |format|
-      if @outlay.update(outlay_params)
-        format.html { redirect_to @outlay, notice: "Outlay was successfully updated." }
-        format.json { render :show, status: :ok, location: @outlay }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @outlay.errors, status: :unprocessable_entity }
+    if @outlay = update(outlay_params)
+
+      if show_group_id[:group_id]
+        if @outlay.groups.empty?
+          @outlay.outlay_groups.create(show_group_id)
+        else
+          @outlay.outlay_groups.update(show_group_id)
+        end
       end
+
+      redirect_to @outlay, notice: 'Outlay was successfully updated'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /outlays/1 or /outlays/1.json
   def destroy
     @outlay.destroy
-    respond_to do |format|
-      format.html { redirect_to outlays_url, notice: "Outlay was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to outlays_path, notice: 'Outlay was successfully destroyed'
+  end
+
+  def external_outlay
+    @external = my_outlays.left_joins(:outlay_groups).where('group_id IS NULL')
+    @total_outlay = @external.sum(:amount)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_outlay
-      @outlay = Outlay.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def outlay_params
-      params.require(:outlay).permit(:name, :amount, :author_id)
-    end
+  def set_outlay
+    @outlay = Outlay.find(params[:id])
+  end
+
+  def outlay_params
+    params.require(:outlay).permit(:name, :amount, :author_id, :group_ids)
+  end
+
+  def show_group_id
+    params.require(:outlay).permit(:group_id)
+  end
+
+  def my_outlays
+    current_user.outlays.includes(:groups).recent_first
+  end
 end
