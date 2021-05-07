@@ -31,11 +31,6 @@ The application has the following features:
 
 [Group My Expenses](https://nameless-caverns-64323.herokuapp.com/)
 
-
-# Please used this repository for the live version if you find any issue in setting up the already reviewed repository in your local machine. Sorry I could not make a live version for the already reviewed repository.
-[(Please click here) Trace-my-expenses](https://github.com/FrederickMih/Trace-my-expenses/tree/feature-expenses)
-
-
 ## Getting Started
 
 ### Setup & Installation
@@ -43,7 +38,7 @@ The application has the following features:
 To get a local copy up and running follow these simple steps.
 
 1. Open a Terminal
-2. Clone the repository `git clone https://github.com/FrederickMih/Group-daily-outlay`
+2. Clone the repository `git clone https://github.com/FrederickMih/Trace-my-expenses`
 3. Move into project path `cd Group-daily-outlay`
 4. Install gems required for the project `bundle`
 5. Create database `rails db:create`
