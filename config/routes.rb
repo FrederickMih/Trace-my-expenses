@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  get 'homes/index'
-  root 'users#profile'
-  resources :groups
-  resources :outlays
+  get 'outlay/index'
+  get 'outlay/new'
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'users#profile'
+  resources :outlays, only: %i[index new create index_no_group]
+  resources :groups
+  get 'sign_up', to: 'users#new'
+  get 'outlays/index_no_group', to: 'outlays#index_no_group'
+  get 'external', to: 'outlays#external_outlay'
+  get 'home/index'
+  # root 'home#index
 end
