@@ -1,3 +1,5 @@
+# rubocop:disable Lint/ConstantDefinitionInBlock
+
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
@@ -122,3 +124,4 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 end
+# rubocop:enable Lint/ConstantDefinitionInBlock

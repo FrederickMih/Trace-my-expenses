@@ -1,3 +1,4 @@
+# rubocop:disable Layout/LineLength
 module GroupsHelper
   def display_icon(group)
     if group.icon.attached?
@@ -20,3 +21,4 @@ module GroupsHelper
                                                                                                       date: { confirm: 'Are you sure?' }
   end
 end
+# rubocop:enable Layout/LineLength

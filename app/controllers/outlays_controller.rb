@@ -1,3 +1,5 @@
+# rubocop:disable Lint/UselessAssignment
+# rubocop:disable Lint/AssignmentInCondition
 class OutlaysController < ApplicationController
   before_action :authenticate_user!
 
@@ -83,3 +85,6 @@ class OutlaysController < ApplicationController
     current_user.outlays.includes(:groups).recent_first
   end
 end
+
+# rubocop:enable Lint/UselessAssignment
+# rubocop:enable Lint/AssignmentInCondition

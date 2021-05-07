@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -88,3 +89,5 @@ ActiveRecord::Schema.define(version: 20_210_507_004_317) do
   add_foreign_key 'outlays_groups', 'groups'
   add_foreign_key 'outlays_groups', 'outlays'
 end
+
+# rubocop:enable Metrics/BlockLength
