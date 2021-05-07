@@ -65,6 +65,8 @@ RSpec was used for testing. To test, simply follow the instructions below:
 ## Acknowledgments
 
 The design information was access from [Snapscan](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding): Credit goes to [Gregoire Vella](https://www.behance.net/gregoirevella).
+Credit equally goes to the author of [Creative Commons](https://creativecommons.org/licenses/by-nc/4.0/)
+
 
 ## 🤝 Contributing
 
