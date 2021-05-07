@@ -1,4 +1,4 @@
-require "active_support/core_ext/integer/time"
+require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -32,12 +32,11 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-   config.active_storage.service = :cloudinary
+  config.active_storage.service = :cloudinary
 
-   CLOUDINARY_URL = 'cloudinary://677957218387247:1V136ij22eN8rgIHjUvlxgfz8C8@dxc1u5evw'.freeze
+  CLOUDINARY_URL = 'cloudinary://677957218387247:1V136ij22eN8rgIHjUvlxgfz8C8@dxc1u5evw'.freeze
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
@@ -79,6 +78,4 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-
-  
 end

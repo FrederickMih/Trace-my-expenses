@@ -1,3 +1,2 @@
 module HomesHelper
-   
 end
