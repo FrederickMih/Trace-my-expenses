@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe OutlayHelper, type: :helper do
+RSpec.describe OutlaysHelper, type: :helper do
   describe 'total outlays' do
     before(:example) do
       @user = User.create!(name: 'Frederick', email: 'mih@gmail.com', password: '333333')
