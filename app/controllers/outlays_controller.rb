@@ -25,11 +25,10 @@ class OutlaysController < ApplicationController
     @outlay = Outlay.new(outlay_params)
     @outlay = current_user.outlays.build(outlay_params)
     @outlay.author_id = current_user.id
-    ids = params[:outlay][:group].reject(&:empty?)
-    groups = Group.find(ids)
-    # ids = params[:outlay][:group]
+
+    ids = params[:outlay][:group]
     # groups = Group.find(ids)
-    @outlay.groups << groups
+    # @outlay.groups << groups
     if @outlay.save
       @outlay.outlays_groups.create(show_group_id)
       redirect_to outlays_path, notice: 'An Item was successfully registered'

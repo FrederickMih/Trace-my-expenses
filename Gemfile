@@ -14,6 +14,10 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.8'
 gem 'mini_magick', '~> 4.11'
 gem 'activestorage-validator'
+gem 'sprockets-rails', '~> 3.2', '>= 3.2.2'
+gem 'will_paginate', '~> 3.3'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
+gem 'cloudinary'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -17,5 +17,6 @@ module GroupsHelper
     return unless group.user_id == current_user.id
 
     link_to '<i class="small material-icons deep-orange-text- accent-3">delete</i>'.html_safe, group, method: :delete,
-                                                                                                      date: { confirm: 'Are you sure?' }
+    date: { confirm: 'Are you sure?' }
+  end
 end
