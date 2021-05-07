@@ -1,29 +1,26 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "Outlay") %>
+<% provide(:title, "Groups") %>
+<div class="card">
+</div>
+<div class="d-flex justify-content-center mt-3">
+  <%= will_paginate @group,renderer: BootstrapPagination::Rails %>
+</div>
+<div class="padding-for-new-entry">
+  <%= render @groups %>
+</div>
 
-<h1>Groups</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= group.name %></td>
-        <td><%= group.user_id %></td>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Group', new_group_path %>
+  <div class="card text-center bg-dark">
+  <div class="card-header">
+   
+  </div>
+  <div class="card-body">
+    <div class=" py-3 " >
+  <%= link_to 'New Group', new_group_path, type: "button", class: "btn btn-outline-light w-80 h-75 mx-auto d-block py-3" %>
+  </div>
+  <div class="card-footer text-muted">
+   
+  </div>
+  
+</div>
+</div>
+<%= render 'floating_pulse'%>
