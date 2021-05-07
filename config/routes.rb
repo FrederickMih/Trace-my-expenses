@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'homes/index'
-  get 'users/profile'
+  root 'users#profile'
   resources :groups
   resources :outlays
   devise_for :users
