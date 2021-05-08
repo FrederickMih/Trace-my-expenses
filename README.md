@@ -10,15 +10,25 @@
 
 The application has the following features:
 
-- User can Register as a new user and login as a registered user.
+- Users create an account or log in as a registered users.
 - The home/profile page is made up of the following links:
     All My Daily Outlays
     All My External Outlays and
     All groups
 - Guest users can't access any other page in the app except home, log in and register pages.
-- Registered user can create a new group and its corresponding items and amount.
-- Logged in user can see all items and groups but can't edit them.
-- Logged in user can edit his group only.
+  
+- When a user clicks on "All My Daily Outlays" a list of all his expenses is displayed and the total amount display at the top sorted by most recent.
+  Each outlay equally displays its name, amount and date, and an icon of the first group it has been assigned to.
+
+- When a user clicks on "All My External Outlays",
+  A list of all expenses that are created by a logged-in user but not assigned to any group is displayed.
+
+- When a user clicks on "All groups", a list of all groups is displayed.
+  The group equally displayed the name of the creator.
+
+- When the user clicks on the view icon of a group, a piece of detailed information about the group is displayed.
+
+
 
 ## Built With
 ![Bootstrap](https://img.shields.io/badge/bootstrap%20-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white)&nbsp;&nbsp;
