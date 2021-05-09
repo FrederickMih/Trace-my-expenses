@@ -6,7 +6,8 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = Group.includes(:user).paginate(page: params[:page], per_page: 3).order("created_at DESC").with_attached_icon
+    @groups = Group.includes(:user).paginate(page: params[:page],
+                                             per_page: 3).order('created_at DESC').with_attached_icon
     @skip_footer = true
   end
 

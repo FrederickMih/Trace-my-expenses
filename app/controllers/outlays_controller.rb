@@ -13,7 +13,7 @@ class OutlaysController < ApplicationController
     @most_recent_outlays = my_outlays
 
     @outlays = Outlay.includes(groups: [icon_attachment: :blob]).paginate(page: params[:page], per_page: 3)
-      .where('author_id=?', current_user.id).joins(:groups).order("created_at DESC")
+      .where('author_id=?', current_user.id).joins(:groups).order('created_at DESC')
     @skip_footer = true
   end
 
