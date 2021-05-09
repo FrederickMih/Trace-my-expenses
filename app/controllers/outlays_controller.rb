@@ -1,5 +1,6 @@
 # rubocop:disable Lint/UselessAssignment
 # rubocop:disable Lint/AssignmentInCondition
+# rubocop:disable Layout/LineLength
 class OutlaysController < ApplicationController
   before_action :authenticate_user!
 
@@ -88,3 +89,4 @@ end
 
 # rubocop:enable Lint/UselessAssignment
 # rubocop:enable Lint/AssignmentInCondition
+# rubocop:enable Layout/LineLength
