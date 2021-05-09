@@ -41,7 +41,4 @@ RSpec.describe User, type: :model do
     it { should validate_length_of(:name).is_at_most(30) }
   end
 
-  # describe "validations for author_id" do
-  #    it { should validate_length_of(:author_id).is_equal_to(5) }
-  # end
 end
