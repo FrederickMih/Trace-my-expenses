@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
 
   it 'Does not validates user if name already exit' do
     User.create!(name: 'Mih', email: 'fred@gmail.com', password: 222_222)
-    user = User.new(name: 'Fred', email: 'mih@gmail.com', password: 111_111)
+    user = User.new(name: 'Mih', email: 'mih@gmail.com', password: 111_111)
     expect(user.valid?).to be false
   end
 
