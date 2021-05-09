@@ -8,7 +8,7 @@
 #
 # The application 'bundle' is installed as part of a gem, and
 # this file is here to facilitate running it.
-#
+
 
 require 'rubygems'
 
@@ -117,7 +117,9 @@ end
 
 m.load_bundler!
 
-load Gem.bin_path('bundler', 'bundle') if m.invoked_as_script?
+if m.invoked_as_script?
+  load Gem.bin_path('bundler', 'bundle') 
+end
 
 
 # rubocop:enable Metrics/CyclomaticComplexity
