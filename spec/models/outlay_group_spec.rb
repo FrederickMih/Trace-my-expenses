@@ -7,7 +7,7 @@ RSpec.describe OutlaysGroup, type: :model do
   end
 
   before(:example) do
-    @user = User.create!(name: 'Fred', email: 'fred@gmail.com', password: '222222')
+    @user = User.create!(name: 'Mih', email: 'fred@gmail.com', password: '222222')
     @group = Group.create(name: 'Phones', user_id: @user.id)
     @outlay = Outlay.create(name: 'shoes', amount: 77, author_id: @user.id)
   end

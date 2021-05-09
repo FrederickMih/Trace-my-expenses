@@ -11,7 +11,7 @@ RSpec.describe OutlaysHelper, type: :helper do
     end
 
     it 'Should give the total of all outlays' do
-      expect(total_outlays(@outlays)).to eq 10
+      expect(total_outlays(@outlays)).to eq 2093
     end
   end
 end

@@ -6,7 +6,7 @@ RSpec.describe Outlay, type: :model do
   end
 
   before(:example) do
-    @user = User.create!(name: 'Fred', email: 'mih@gmail.com', password: '222222')
+    @user = User.create!(name: 'Mih1', email: 'mih@gmail.com', password: '222222')
     @amount = 60
   end
 
