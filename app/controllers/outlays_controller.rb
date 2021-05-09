@@ -19,7 +19,7 @@ class OutlaysController < ApplicationController
 
   def index_no_group
     @outlays = Outlay.includes(groups: [icon_attachment: :blob]).paginate(page: params[:page], per_page: 3)
-      .where('author_id=?', current_user.id).left_outer_joins(:groups).where('groups.id IS NULL')
+      .where('author_id=?', current_user.id).left_outer_joins(:groups).where('groups.id IS NULL').order('created_at DESC')
     render 'index'
   end
 
