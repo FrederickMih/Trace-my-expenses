@@ -1,4 +1,6 @@
-require "active_support/core_ext/integer/time"
+# rubocop:disable Lint/ConstantDefinitionInBlock
+
+require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -13,6 +15,8 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
@@ -30,8 +34,11 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.active_storage.service = :cloudinary
+
+  CLOUDINARY_URL = 'cloudinary://677957218387247:1V136ij22eN8rgIHjUvlxgfz8C8@dxc1u5evw'.freeze
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
@@ -74,3 +81,5 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 end
+
+# rubocop:enable Lint/ConstantDefinitionInBlock

@@ -1,15 +1,55 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.logo {
+  font-family: 'Pacifico', cursive;
+}
+
+.h-header {
+   margin: 100px auto;
+   font-family: 'Pacifico', cursive;
+   font-size: 5rem;
+}
+ .padding-for-new-entry{
+   padding-bottom: 100px;
+ }
+
+ body{
+   background-color: #d9dfeb;
+   color: #434b54;
+   font-family: "lato", sans-serif;
+ }
+
+ .group-img {
+   width: 80px;
+   height: 80px;
+   object-fit: cover;
+}
+
+.outlay_image_icon {
+  height:100px;
+  width: 100px;
+  padding: 0.3;
+}
+
+
+.avatar {
+  border-radius: 90%;  
+  height: 80px;
+  
+}
+
+.profile_img {
+  height: 225px;
+  width: 225px;
+}
+.profile_info {
+ font-size: 1rem;
+ margin-left: 0.5rem;
+}
+.profile_link:hover {
+  color: #14abb1;
+}
+.pg-profile {
+  color: #0d2b52;
+  background-color: #021844;
+}
